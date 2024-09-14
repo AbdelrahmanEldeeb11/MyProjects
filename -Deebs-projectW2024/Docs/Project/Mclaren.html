@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fullscreen Sketchfab Embed</title>
+    <style>
+        /* Ensure the body takes up the entire viewport */
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh; /* Full viewport height */
+            overflow: hidden; /* Hide any overflow */
+            display: flex;
+            justify-content: center; /* Center align content horizontally */
+            align-items: center; /* Center align content vertically */
+            background-color: #000; /* Set a background color */
+        }
+        
+        /* Style for the Sketchfab iframe wrapper */
+        .sketchfab-embed-wrapper {
+            width: 100%; /* Full width of viewport */
+            height: 100%; /* Full height of viewport */
+            display: flex;
+            justify-content: center; /* Center align iframe horizontally */
+            align-items: center; /* Center align iframe vertically */
+            overflow: hidden; /* Hide any overflow */
+        }
+        
+        /* Style for the Sketchfab iframe */
+        .sketchfab-embed-wrapper iframe {
+            width: 100%; /* Full width of wrapper */
+            height: 100%; /* Full height of wrapper */
+            border: none; /* Remove iframe border */
+        }
+    </style>
+</head>
+<body>
+
+<div class="sketchfab-embed-wrapper">
+    <iframe title="McLaren Senna"
+            frameborder="0"
+            allowfullscreen
+            mozallowfullscreen="true"
+            webkitallowfullscreen="true"
+            allow="autoplay; fullscreen; xr-spatial-tracking"
+            xr-spatial-tracking
+            execution-while-out-of-viewport
+            execution-while-not-rendered
+            web-share
+            src="https://sketchfab.com/models/8739ae69d41f41a3bb8f334d4ea08d3b/embed">
+    </iframe>
+</div>
+
+</body>
+</html>
