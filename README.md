@@ -11,7 +11,7 @@ The folders in this repository include:
 - **Deebs Car Rental Website**:A fully functional car rental website, offering an easy-to-use interface for users to browse and book vehicles, built with full-stack web technologies.
 
 ## Skills & Tools
-- **Languages**: Java, C, Python, PHP, Neo4j (NoSQL)
+- **Languages**: Java, C, Python, Closure, PHP, HTML/CSS
 - **Databases**: MySQL, Neo4j
 - **Tools**: Eclipse, IntelliJ, Visual Studio Code, GitHub
 
