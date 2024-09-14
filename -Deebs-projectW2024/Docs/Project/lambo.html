@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fullscreen Sketchfab Embed</title>
+    <style>
+        /* Style to make the iframe cover the whole screen */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+        .sketchfab-embed-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw; /* Use viewport width */
+            height: 100vh; /* Use viewport height */
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+        }
+        .sketchfab-embed-wrapper iframe {
+            width: 90%; /* Adjust the width of the iframe */
+            height: 90vh; /* Adjust the height of the iframe */
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="sketchfab-embed-wrapper">
+    <iframe title="3d Model Lambo Revvelto 2023"
+            frameborder="0"
+            allowfullscreen
+            mozallowfullscreen="true"
+            webkitallowfullscreen="true"
+            allow="autoplay; fullscreen; xr-spatial-tracking"
+            xr-spatial-tracking
+            execution-while-out-of-viewport
+            execution-while-not-rendered
+            web-share
+            src="https://sketchfab.com/models/6332e277a34e48dba6868e058e4106e0/embed">
+    </iframe>
+</div>
+
+</body>
+</html>
