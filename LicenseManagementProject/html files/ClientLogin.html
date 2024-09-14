@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login Form</title>
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/all.css'>
+    <link rel="stylesheet" href="../css files/ClientLogin.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="screen">
+            <h2>Client Login</h2>
+            <form class="login" id="login-form">
+                <div class="login__field">
+                    <i class="login__icon fas fa-user"></i>
+                    <input type="text" id="username" class="login__input" placeholder="Username">
+                </div>
+                <div class="login__field">
+                    <i class="login__icon fas fa-lock"></i>
+                    <input type="password" id="password" class="login__input" placeholder="Password">
+                </div>
+                <button class="btn login__submit" type="submit">
+                    Log In Now <i class="button__icon fas fa-chevron-right"></i>
+                </button>
+                <div class="signup-prompt">
+                    <span>
+                        <a href="createAccount.html">Don't have an account?</a>
+                    </span>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const loginForm = document.getElementById("login-form");
+            loginForm.addEventListener("submit", function (event) {
+                event.preventDefault(); // Prevent form submission
+                const username = document.getElementById("username").value;
+                const password = document.getElementById("password").value;
+
+                // Send data to the server
+                fetch('http://localhost:3000/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ username: username, password: password }),
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            window.location.href = "ClientPage.html"; // Redirect on success
+                        } else {
+                            alert(data.message); // Show error message
+                        }
+                    })
+                    .catch((error) => {
+                        console.error('Error:', error);
+                        alert('An error occurred while logging in');
+                    });
+            });
+        });
+    </script>
+
+</body>
+
+</html>

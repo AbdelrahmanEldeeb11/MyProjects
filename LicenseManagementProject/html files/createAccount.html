@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Create Account</title>
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/all.css'>
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/fontawesome.css'>
+    <link rel="stylesheet" href="../css files/providerlogin.css">
+</head>
+
+<body>
+
+    </div>
+    <div class="container">
+        <div class="screen">
+            <div class="screen__content">
+                <form class="register" id="register-form">
+                    <div class="login__field">
+                        <i class="login__icon fas fa-user"></i>
+                        <input type="text" id="new-username" class="login__input" placeholder="Username">
+                    </div>
+                    <div class="login__field">
+                        <i class="login__icon fas fa-user"></i>
+                        <input type="email" id="new-email" class="login__input" placeholder="Email">
+                    </div>
+                    <div class="login__field">
+                        <i class="login__icon fas fa-lock"></i>
+                        <input type="password" id="new-password" class="login__input" placeholder="New Password">
+                    </div>
+                    <div class="login__field">
+                        <i class="login__icon fas fa-lock"></i>
+                        <input type="password" id="confirm-password" class="login__input"
+                            placeholder="Confirm Password">
+                    </div>
+                    <button class="button login__submit" type="submit">
+                        <span class="button__text">Create Account</span>
+                        <i class="button__icon fas fa-user-plus"></i>
+                    </button>
+                    <div id="success"></div>
+                    <div id="login-link" style="text-align: left;"></div>
+                </form>
+                <div class="social-login"></div>
+            </div>
+            <div class="screen__background">
+                <span class="screen__background__shape screen__background__shape4"></span>
+                <span class="screen__background__shape screen__background__shape3"></span>
+                <span class="screen__background__shape screen__background__shape2"></span>
+                <span class="screen__background__shape screen__background__shape1"></span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const registerForm = document.getElementById("register-form");
+
+            registerForm.addEventListener("submit", function (event) {
+                event.preventDefault(); // Prevent form submission
+
+                const newUsername = document.getElementById("new-username").value;
+                const newEmail = document.getElementById("new-email").value;
+                const newPassword = document.getElementById("new-password").value;
+                const confirmPassword = document.getElementById("confirm-password").value;
+
+                // Validate the input
+                if (newPassword !== confirmPassword) {
+                    alert("Passwords do not match!");
+                    return;
+                }
+                else if (!newUsername || !newPassword || !confirmPassword) {
+                    alert("Please fill out all fields!");
+                    return;
+                }
+
+                // Send data to the server
+                fetch('http://localhost:3000/create-account', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ username: newUsername, email: newEmail, password: newPassword }),
+                })
+
+
+                    .then(response => response.json())
+                    .then(data => {
+                        const successDiv = document.getElementById("success");
+                        if (data.success) {
+                            successDiv.innerHTML = "Successfully created an account! ";
+
+                            // Create a 'Log In' hyperlink
+                            const loginLink = document.createElement("a");
+                            loginLink.href = "../html files/ClientLogin.html"; // Replace with the path to your login page
+                            loginLink.textContent = "Log In";
+
+                            // Append the hyperlink to the 'success' div
+                            successDiv.appendChild(loginLink);
+                        } else {
+                            alert(data.message); // Show error message
+                        }
+                    })
+                    .catch((error) => {
+                        console.error('Error:', error);
+                    });
+            });
+        });
+    </script>
+
+</body>
+
+</html>

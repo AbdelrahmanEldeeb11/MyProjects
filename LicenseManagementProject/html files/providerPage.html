@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software License Management</title>
+    <link rel="stylesheet" href="../css files/providerPage.css">
+
+</head>
+
+<body>
+    <div id="homeIcon">
+        <a href="Home.html">
+            <img src="../images/home.png" id="homeButton">
+        </a>
+    </div>
+    <div class="container">
+        <!-- Manage clients’ account -->
+        <!-- Manage clients’ account -->
+        <form id="manageClientForm">
+            <h2>Manage Client Account</h2>
+            <label for="clientSelect">Select a Client:</label>
+            <select id="clientSelect">
+                <option value="" disabled selected>Select Client</option>
+                <!-- Client options will be loaded here -->
+            </select>
+            <div id="clientDetails">
+                <!-- Client details will be displayed here -->
+            </div>
+
+            <p id="managingClient"></p>
+        </form>
+
+
+        <!-- Generate serial numbers -->
+
+        <h2>Generate Serial Number</h2>
+        <button id="generateButton">Generate Serial</button>
+        <div id="serialDisplay"></div>
+
+        <!-- Associate serial numbers -->
+
+
+
+
+        <h2>Associate Serial Number</h2>
+        <label for="clientName2">Client Name:</label>
+        <input type="text" id="clientName2" placeholder="Enter client's username">
+
+        <label for="productName">Product Name:</label>
+        <input type="text" id="productName" placeholder="Enter product name">
+
+        <label for="serialNumber">Serial Number:</label>
+        <input type="text" id="serialNumber" placeholder="XXXX-XXXX-XXXX-XXXX">
+        <button type="button" id="associateButton">Associate</button>
+        <p id="associate"></p>
+
+        <h2 id="associateSerialForm">Serial number configuration</h2>
+        <label for="serialNumber">Serial Number:</label>
+        <input type="text" id="serialNumber2" placeholder="XXXX-XXXX-XXXX-XXXX">
+        <label id="unblockLabel" for="unblockRadio">Unblock</label>
+        <input type="radio" id="unblockRadio" name="but1">
+        <label id="blockLabel" for="blockRadio">Block</label>
+        <input type="radio" id="blockRadio" name="but1">
+        <br>
+        <button id="configButton">Submit</button>
+        <p id="configMessage"></p>
+
+
+
+        <!-- Notification Management -->
+
+        <h2>Send Notifications</h2>
+        <label for="clientEmailNotify">Client Email:</label>
+        <input type="text" id="clientEmailNotify" placeholder="Enter client email">
+
+        <label for="message">Message:</label>
+        <textarea id="message" rows="5" placeholder="Enter your notification message"></textarea>
+
+        <button id="sendNoti">Send Notification</button>
+        <p id="notiMessage"></p>
+
+
+
+
+    </div>
+    <script src="../js files/providerPage.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
+
+body {
+	background: #F2F2F2;
+	font-family: Raleway, sans-serif;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	margin: 0;
+	padding: 20px;
+}
+
+.container {
+	background: #FFFFFF;
+	padding: 50px 80px;
+	box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.1);
+	border-radius: 15px;
+	width: 100%;
+	max-width: 500px;
+	text-align: center;
+}
+
+h2 {
+	color: #333333;
+	margin-bottom: 30px;
+	font-size: 24px;
+}
+
+.login__field {
+	margin-bottom: 20px;
+	position: relative;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.login__icon {
+	color: #007BFF;
+	font-size: 20px;
+}
+
+.login__input {
+	border: 1px solid #d1d1d4;
+	border-radius: 9px;
+	padding: 10px 20px;
+	width: 100%;
+	transition: .2s;
+	background: #F2F2F2;
+	font-size: 16px;
+}
+
+.login__input:focus {
+	border-color: #007BFF;
+	outline: none;
+}
+
+.btn {
+	background: #007BFF;
+	color: #FFFFFF;
+	padding: 15px 30px;
+	border: none;
+	border-radius: 9px;
+	cursor: pointer;
+	text-decoration: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	width: 100%;
+}
+
+.btn:hover {
+	background: #0056b3;
+}
+
+.signup-prompt {
+	margin-top: 15px;
+	font-size: 14px;
+	color: #333333;
+	text-align: center;
+}
+
+.signup-prompt a {
+	color: #007BFF;
+	text-decoration: none;
+}
+
+.signup-prompt a:hover {
+	text-decoration: underline;
+}

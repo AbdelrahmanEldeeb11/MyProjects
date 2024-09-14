@@ -1,0 +1,474 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client License Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f8;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            border-bottom: 2px solid #2f3e75;
+            padding-bottom: 10px;
+        }
+
+        .card button {
+            background-color: #2f3e75;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .card label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .card input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        #licenseMessage {
+            color: green;
+            font-weight: bold;
+        }
+
+        #failMessage {
+            color: red;
+            font-weight: bold;
+        }
+
+        #homeButton {
+            width: 35px;
+            /* Adjust the width to desired size */
+            height: auto;
+            /* This will maintain the aspect ratio of the images */
+            transition: transform 0.3s;
+            /* Optional: for a hover effect */
+        }
+
+        #homeButton:hover {
+            transform: scale(1.15);
+            /* Optional: scales the image up a bit when hovered */
+        }
+
+        #homeIcon {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .membership-details {
+            background-color: #e8e8e8;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+
+        .membership-details h4 {
+            color: #2f3e75;
+        }
+
+        .membership-details p {
+            margin: 5px 0;
+        }
+
+        .membership-details button {
+            background-color: #2f3e75;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+            margin-top: 10px;
+        }
+
+        .membership-options {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+
+        .membership-options input[type="radio"] {
+            display: none;
+            /* Hide the default radio button */
+        }
+
+        .membership-options label {
+            background: #e8e8e8;
+            color: #333;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            display: block;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .membership-options input[type="radio"]:checked+label {
+            background: #2f3e75;
+            color: white;
+        }
+
+        .membership-details {
+            background-color: #f4f4f8;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            display: none;
+            /* Hide by default */
+        }
+
+        .membership-details.active {
+            display: block;
+            /* Show when active */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="homeIcon">
+        <a href="Home.html">
+            <img src="../images/home.png" id="homeButton">
+        </a>
+
+        <div class="container">
+            <!-- Account Management Card -->
+            <div class="card">
+                <h3><i class="fas fa-user-circle"></i> Account Management</h3>
+                <button id="edit-account">Edit Account Details</button>
+                <button id="delete-account">Delete Account</button>
+            </div>
+
+            <!-- License Management Card -->
+            <div class="card">
+                <h3><i class="fas fa-key"></i> License Management</h3>
+                <label for="membership-name">Membership name:</label>
+                <input type="text" id="membership-name" placeholder="Netflix">
+                <label for="serial-number">Serial Number:</label>
+                <input type="text" id="serial-number" placeholder="XXXX-XXXX-XXXX-XXXX">
+                <label for="purchase-date">Purchase Date:</label>
+                <input type="date" id="purchase-date">
+                <label for="expiry-date">Expiry Date:</label>
+                <input type="date" id="expiry-date">
+                <button id="associateLicense">Associate License</button>
+                <p id="licenseMessage"></p>
+                <p id="failMessage"></p>
+            </div>
+            <!-- Inside the Account Management Card -->
+            <!-- Inside the License Actions Card -->
+            <!-- License Actions Card -->
+
+            <!-- Membership Management Card -->
+            <!-- Membership Management Card -->
+            <div class="card">
+                <h3><i class="fas fa-crown"></i> Membership Management</h3>
+                <label for="membership-select">Select a Membership Name:</label>
+                <select id="membership-select">
+                    <option value="" disabled selected>Select Membership</option>
+                    <!-- Membership options will be loaded here -->
+                </select>
+                <div id="membership-details">
+                    <!-- Membership details will be loaded here -->
+                </div>
+            </div>
+
+
+
+
+
+
+
+            <div class="card">
+                <h3><i class="fas fa-cogs"></i> License Actions</h3>
+                <button id="acquire-license" onclick="window.location.href='AcquireLicense.html'">Acquire New
+                    License</button>
+            </div>
+
+            <!-- Notes Card -->
+            <div class="card">
+                <h3><i class="fas fa-sticky-note"></i> Notes</h3>
+                <p>Please ensure all data is accurate. If you're experiencing issues, contact support.</p>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script>
+        document.getElementById('delete-account').onclick = function () {
+            let inputs = document.querySelectorAll(".card input");
+            inputs.forEach(input => input.value = '');
+            if (confirm("Are you sure you want to delete?!") == true) {
+                alert("The account has been deleted!!");
+                window.location.href = "Home.html"
+            }
+        };
+
+        /*
+                    document.getElementById('acquire-license').onclick = function() {
+                        let today = new Date().toISOString().slice(0, 10);
+                    let nextYear = new Date();
+                    nextYear.setFullYear(nextYear.getFullYear() + 1);
+        
+                    document.querySelector("#serial-number").value = "ABC123456789";
+                    document.querySelector("#purchase-date").value = today;
+                    document.querySelector("#expiry-date").value = nextYear.toISOString().slice(0, 10);
+                    alert("New License Acquired!");
+              };
+        */
+        document.getElementById('edit-account').onclick = function () {
+            window.location.href = 'EditAccount.html'; // Ensure the file name matches your actual HTML file name
+        };
+
+
+        document.getElementById("associateLicense").onclick = function () {
+            const membershipName = document.getElementById('membership-name').value;
+            const serialNumber = document.getElementById('serial-number').value;
+            const purchaseDate = document.getElementById('purchase-date').value;
+            const expiryDate = document.getElementById('expiry-date').value;
+
+            if (membershipName && serialNumber && purchaseDate && expiryDate) {
+                const licenseData = {
+                    MembershipName: membershipName,
+                    SerialNumber: serialNumber,
+                    PurchaseDate: purchaseDate,
+                    ExpiryDate: expiryDate
+                };
+
+                fetch('http://localhost:3000/associate-license', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(licenseData)
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            document.getElementById("licenseMessage").innerHTML = `Successfully associated license with serial number: ${serialNumber}!`;
+                        } else {
+                            document.getElementById("failMessage").innerHTML = `Serial number already exists!`;
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('An error occurred while associating the license');
+                    });
+            } else {
+                alert('Please fill out all fields!');
+            }
+        };
+
+
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+            fetchMembershipNames();
+            document.getElementById('membership-select').addEventListener('change', function () {
+                if (this.value) {
+                    loadMembershipDetails(this.value);
+                }
+            });
+        });
+
+        function fetchMembershipNames() {
+            fetch('http://localhost:3000/get-memberships')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        populateMembershipDropdown(data.data);
+                    } else {
+                        console.error('Failed to fetch memberships');
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        function populateMembershipDropdown(memberships) {
+            const selectElement = document.getElementById('membership-select');
+
+            memberships.forEach(membership => {
+                let option = document.createElement('option');
+                option.value = membership.MembershipName;
+                option.textContent = membership.MembershipName;
+                selectElement.appendChild(option);
+            });
+        }
+
+        function loadMembershipDetails(membershipName) {
+            fetch(`http://localhost:3000/get-membership-details/${membershipName}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        displayMembershipDetails(data.data);
+                    } else {
+                        console.error('Failed to load membership details');
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        function displayMembershipDetails(details) {
+            const detailsDiv = document.getElementById('membership-details');
+            detailsDiv.innerHTML = ''; // Clear existing details
+
+            details.forEach(detail => {
+                let detailDiv = document.createElement('div');
+                detailDiv.className = 'membership-detail';
+                detailDiv.innerHTML = `
+            <p><strong>Serial Number:</strong> ${detail.SerialNumber}</p>
+            <p><strong>Purchase Date:</strong> ${detail.purchaseDate}</p>
+            <p><strong>Expiry Date:</strong> ${detail.expiryDate}</p>
+            <button onclick="renewMembershipM('${detail.SerialNumber}')">Renew License for 1 month</button>
+            <button onclick="renewMembershipY('${detail.SerialNumber}')">Renew License for 1 year</button>
+            <button onclick="cancelMembership('${detail.SerialNumber}')">Cancel License</button>
+        `;
+                detailsDiv.appendChild(detailDiv);
+            });
+        }
+
+        function renewMembershipM(serialNumber) {
+            fetch('http://localhost:3000/renew-license-month', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ serialNumber })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('License renewed for 1 month');
+                        // Reload membership details to update the expiry date
+                        loadMembershipDetails(document.getElementById('membership-select').value);
+                    } else {
+                        alert('Error: ' + data.message);
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        function renewMembershipY(serialNumber) {
+            fetch('http://localhost:3000/renew-license-year', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ serialNumber })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('License renewed for 1 year');
+                        // Reload membership details to update the expiry date
+                        loadMembershipDetails(document.getElementById('membership-select').value);
+                    } else {
+                        alert('Error: ' + data.message);
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        function cancelMembership(serialNumber) {
+            if (confirm("Are you sure you want to cancel this license?")) {
+                fetch('http://localhost:3000/cancel-license', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ serialNumber })
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            alert('License canceled successfully');
+                            // Reload membership details to reflect the changes
+                            loadMembershipDetails(document.getElementById('membership-select').value);
+                        } else {
+                            alert('Error: ' + data.message);
+                        }
+                    })
+                    .catch(error => console.error('Error:', error));
+            }
+        }
+
+
+
+
+
+
+        document.getElementById('delete-account').onclick = function () {
+            let usernameToDelete = prompt("Please enter your username to confirm account deletion:");
+            let passwordToDelete = prompt("Please enter your password to confirm account deletion:");
+
+            if (usernameToDelete && passwordToDelete) {
+                if (confirm("Are you sure you want to delete your account? This action cannot be undone!")) {
+                    fetch('http://localhost:3000/delete-account', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ username: usernameToDelete, password: passwordToDelete })
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.success) {
+                                alert('Account has been deleted!');
+                                window.location.href = 'Home.html';
+                            } else {
+                                alert('Error: ' + data.message);
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            alert('An error occurred while deleting the account');
+                        });
+                }
+            } else {
+                alert("Account deletion cancelled.");
+            }
+        };
+
+
+
+
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>
