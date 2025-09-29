@@ -37,31 +37,15 @@ body:
     attributes:
       value: "## Story Details"
 
-  - type: input
-    id: story-points
+  - type: textarea
+    id: story-details
     attributes:
-      label: "Story Points"
-      description: "Estimate effort (e.g., 1, 2, 3, 5, 8)"
-      placeholder: "3"
-
-  - type: input
-    id: priority
-    attributes:
-      label: "Priority"
-      description: "e.g., High / Medium / Low"
-      placeholder: "High"
-
-  - type: input
-    id: value
-    attributes:
-      label: "Value"
-      description: "e.g., High / Medium / Low"
-      placeholder: "High"
-
-  - type: input
-    id: risk
-    attributes:
-      label: "Risk"
-      description: "e.g., High / Medium / Low"
-      placeholder: "Medium"
-
+      label: "Story Details"
+      description: "Keep this block; just fill the values."
+      value: |
+        **Story Points:** 
+        **Priority:** High  
+        **Value:** High  
+        **Risk:** Medium
+    validations:
+      required: true
