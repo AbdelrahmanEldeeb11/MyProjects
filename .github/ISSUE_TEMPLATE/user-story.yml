@@ -4,7 +4,6 @@ title: "US#[X]: [Short Title]"
 labels: ["user-story"]
 
 body:
-  # ——— User Story ———
   - type: markdown
     attributes:
       value: "## User Story"
@@ -18,13 +17,6 @@ body:
     validations:
       required: true
 
-  # --- separator
-  - type: markdown
-    attributes:
-      value: |
-        ---
-
-  # ——— Acceptance Criteria ———
   - type: markdown
     attributes:
       value: "## Acceptance Criteria"
@@ -36,18 +28,11 @@ body:
       description: "Use bullet points. Keep each item testable."
       value: |
         - The user …
-        - The system …
-        - Errors are handled …
+        - 
+        - 
     validations:
       required: true
 
-  # --- separator
-  - type: markdown
-    attributes:
-      value: |
-        ---
-
-  # ——— Story Details ———
   - type: markdown
     attributes:
       value: "## Story Details"
@@ -59,9 +44,9 @@ body:
       description: "Keep this block; just fill the values."
       value: |
         **Story Points:** 
-        **Priority:** High  
-        **Value:** High  
-        **Risk:** Medium
+        **Priority:**   
+        **Value:**   
+        **Risk:** 
     validations:
       required: true
 
