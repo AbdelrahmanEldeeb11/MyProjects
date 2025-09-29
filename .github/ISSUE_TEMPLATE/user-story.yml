@@ -1,5 +1,5 @@
 name: "User Story"
-description: "Create a new user story"
+description: "Template for creating a new user story"
 title: "US#[X]: [Short Title]"
 labels: ["user-story"]
 
@@ -11,10 +11,9 @@ body:
   - type: textarea
     id: user-story
     attributes:
-      label: ""
-      description: "Write the story in the format: As a [user/persona], I want to [do something], so I can [achieve some goal]."
+      label: "User Story"
+      description: "Write the story in the format: As a [user/persona], I want to [do something], so I can [achieve goal]."
       placeholder: "As a user, I want to …, so I can …"
-      value: "As a user, I want to …, so I can …"
     validations:
       required: true
 
@@ -25,12 +24,12 @@ body:
   - type: textarea
     id: acceptance-criteria
     attributes:
-      label: ""
-      description: "Use short bullet points. If you prefer Given/When/Then, write them here."
-      value: |
-        - The user …
-        - The system …
-        - Errors are handled …
+      label: "Acceptance Criteria"
+      description: "List acceptance criteria using Given/When/Then or bullet points."
+      placeholder: |
+        - Given [context]
+        - When [action]
+        - Then [outcome]
     validations:
       required: true
 
@@ -41,27 +40,32 @@ body:
   - type: input
     id: story-points
     attributes:
-      label: "Story Points:"
-      description: "Estimate effort (e.g., 1, 2, 3, 5, 8)"
-      placeholder: "3"
+      label: "Story Points"
+      placeholder: "e.g. 3"
 
   - type: dropdown
     id: priority
     attributes:
-      label: "Priority:"
-      options: ["High", "Medium", "Low"]
-      default: 0
+      label: "Priority"
+      options:
+        - High
+        - Medium
+        - Low
 
   - type: dropdown
     id: value
     attributes:
-      label: "Value:"
-      options: ["High", "Medium", "Low"]
-      default: 0
+      label: "Value"
+      options:
+        - High
+        - Medium
+        - Low
 
   - type: dropdown
     id: risk
     attributes:
-      label: "Risk:"
-      options: ["High", "Medium", "Low"]
-      default: 1
+      label: "Risk"
+      options:
+        - High
+        - Medium
+        - Low
