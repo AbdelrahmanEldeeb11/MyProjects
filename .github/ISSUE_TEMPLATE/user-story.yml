@@ -16,7 +16,7 @@ body:
       placeholder: "As a user, I want to …, so I can …"
     validations:
       required: true
-
+--- 
   - type: markdown
     attributes:
       value: "## Acceptance Criteria"
@@ -32,7 +32,7 @@ body:
         - User …
     validations:
       required: true
-
+---
   - type: markdown
     attributes:
       value: "## Story Details"
