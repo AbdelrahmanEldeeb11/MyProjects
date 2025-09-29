@@ -27,9 +27,9 @@ body:
       label: "Acceptance Criteria"
       description: "Use bullet points. Keep each item testable."
       value: |
-        - The user …
-        - The system …
-        - Errors are handled …
+        - User …
+        - User …
+        - User …
     validations:
       required: true
 
@@ -44,8 +44,8 @@ body:
       description: "Keep this block; just fill the values."
       value: |
         **Story Points:** 
-        **Priority:** High  
-        **Value:** High  
-        **Risk:** Medium
+        **Priority:** 
+        **Value:**  
+        **Risk:** 
     validations:
       required: true
