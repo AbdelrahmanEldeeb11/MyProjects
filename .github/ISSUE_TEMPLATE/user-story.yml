@@ -4,56 +4,64 @@ title: "US#[X]: [Short Title]"
 labels: ["user-story"]
 
 body:
+  - type: markdown
+    attributes:
+      value: "## User Story"
+
   - type: textarea
     id: user-story
     attributes:
-      label: User Story
-      description: "Write the user story in this format: As a [user/persona], I want to [do something], so I can [achieve some goal]."
-      placeholder: "As a user, I want to ..."
+      label: ""
+      description: "Write the story in the format: As a [user/persona], I want to [do something], so I can [achieve some goal]."
+      placeholder: "As a user, I want to …, so I can …"
+      value: "As a user, I want to …, so I can …"
     validations:
       required: true
+
+  - type: markdown
+    attributes:
+      value: "## Acceptance Criteria"
 
   - type: textarea
     id: acceptance-criteria
     attributes:
-      label: Acceptance Criteria
-      description: "Use the Given/When/Then format."
-      placeholder: |
-        Given [context]
-        When [action]
-        Then [outcome]
+      label: ""
+      description: "Use short bullet points. If you prefer Given/When/Then, write them here."
+      value: |
+        - The user …
+        - The system …
+        - Errors are handled …
     validations:
       required: true
+
+  - type: markdown
+    attributes:
+      value: "## Story Details"
 
   - type: input
     id: story-points
     attributes:
-      label: Story Points
-      description: "Estimate effort (e.g., 1, 3, 5, 8)."
+      label: "Story Points:"
+      description: "Estimate effort (e.g., 1, 2, 3, 5, 8)"
+      placeholder: "3"
 
   - type: dropdown
     id: priority
     attributes:
-      label: Priority
-      options:
-        - High
-        - Medium
-        - Low
+      label: "Priority:"
+      options: ["High", "Medium", "Low"]
+      default: 0
 
   - type: dropdown
     id: value
     attributes:
-      label: Value
-      options:
-        - High
-        - Medium
-        - Low
+      label: "Value:"
+      options: ["High", "Medium", "Low"]
+      default: 0
 
   - type: dropdown
     id: risk
     attributes:
-      label: Risk
-      options:
-        - High
-        - Medium
-        - Low
+      label: "Risk:"
+      options: ["High", "Medium", "Low"]
+      default: 1
