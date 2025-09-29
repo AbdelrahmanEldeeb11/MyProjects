@@ -25,11 +25,11 @@ body:
     id: acceptance-criteria
     attributes:
       label: "Acceptance Criteria"
-      description: "List acceptance criteria using Given/When/Then or bullet points."
-      placeholder: |
-        - Given [context]
-        - When [action]
-        - Then [outcome]
+      description: "Use bullet points. Keep each item testable."
+      value: |
+        - The user …
+        - The system …
+        - Errors are handled …
     validations:
       required: true
 
@@ -41,31 +41,27 @@ body:
     id: story-points
     attributes:
       label: "Story Points"
-      placeholder: "e.g. 3"
+      description: "Estimate effort (e.g., 1, 2, 3, 5, 8)"
+      placeholder: "3"
 
-  - type: dropdown
+  - type: input
     id: priority
     attributes:
       label: "Priority"
-      options:
-        - High
-        - Medium
-        - Low
+      description: "e.g., High / Medium / Low"
+      placeholder: "High"
 
-  - type: dropdown
+  - type: input
     id: value
     attributes:
       label: "Value"
-      options:
-        - High
-        - Medium
-        - Low
+      description: "e.g., High / Medium / Low"
+      placeholder: "High"
 
-  - type: dropdown
+  - type: input
     id: risk
     attributes:
       label: "Risk"
-      options:
-        - High
-        - Medium
-        - Low
+      description: "e.g., High / Medium / Low"
+      placeholder: "Medium"
+
